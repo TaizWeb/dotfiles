@@ -99,7 +99,7 @@ autocmd FileType text setlocal spell
 " Syntax and GUI
 syntax on
 colorscheme hybrid
-set background=dark
+set background=dark " This is here for legacy reasons
 set encoding=utf8
 " set guifont='DejaVu_Sans_Mono_for_Powerline':h10
 ":cANSI:qDRAFT
@@ -119,3 +119,5 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_custom_ignore = 'node_modules\|.vscode\|Lib\|Include\|tcl\|.git/'
 let g:ctrlp_show_hidden = 1 " Enable ctrl-p to show dotfiles
 
+" Fancy transparent background
+hi Normal guibg=NONE ctermbg=NONE
