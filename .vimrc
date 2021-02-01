@@ -119,5 +119,9 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_custom_ignore = 'node_modules\|.vscode\|Lib\|Include\|tcl\|.git/'
 let g:ctrlp_show_hidden = 1 " Enable ctrl-p to show dotfiles
 
+" Snipmate Settings
+let g:snipMate = { 'snippet_version' : 1 }
+
 " Fancy transparent background
 hi Normal guibg=NONE ctermbg=NONE
+
