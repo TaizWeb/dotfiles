@@ -68,17 +68,22 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set noexpandtab
-set modeline
+set modeline " Set file specific modelines just in case
 set smarttab
 set autoindent
 set smartindent
 set cindent
-set showcmd
-set cursorline
+set showcmd " Show the in-progress command in the lower right corner
+set cursorline " Lights up the current line
 set wildmenu " Enables command completion via <TAB>
-set hlsearch
+set hlsearch " Enables highlighted searching
+set ignorecase " Ignore search case
+set incsearch " Show incremental search results
 set lazyredraw
 set backspace=indent,eol,start
+set noswapfile " Controversial I know
+set title " Sets the title of the terminal to the edited file
+set relativenumber " We're going hardmode now
 
 " Keybinds (- to go back a buffer, = to go forward)
 nnoremap - :bprevious<CR>
@@ -112,5 +117,5 @@ let g:airline_powerline_fonts = 1
 
 " CtrlP Settings
 let g:ctrlp_custom_ignore = 'node_modules\|.vscode\|Lib\|Include\|tcl\|.git/'
-let g:ctrlp_show_hidden = 1
+let g:ctrlp_show_hidden = 1 " Enable ctrl-p to show dotfiles
 
