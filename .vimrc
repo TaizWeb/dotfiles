@@ -122,6 +122,7 @@ let g:ctrlp_show_hidden = 1 " Enable ctrl-p to show dotfiles
 " Snipmate Settings
 let g:snipMate = { 'snippet_version' : 1 }
 
-" Fancy transparent background
-hi Normal guibg=NONE ctermbg=NONE
+" Colorscheme Tweaks
+highlight Normal guibg=NONE ctermbg=NONE " Fancy transparent background
+highlight LineNr ctermfg=Grey " Make line numbers readable on said background
 
