@@ -62,28 +62,33 @@ Plugin 'vim-airline/vim-airline-themes' " Adds themes to airline
 
 call vundle#end()
 
-" Editor Settings
-set number " Turns on line numbering
+" Whitespace
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set noexpandtab
-set modeline " Set file specific modelines just in case
 set smarttab
 set autoindent
 set smartindent
 set cindent
-set showcmd " Show the in-progress command in the lower right corner
-set cursorline " Lights up the current line
-set wildmenu " Enables command completion via <TAB>
+
+" Searching
 set hlsearch " Enables highlighted searching
 set ignorecase " Ignore search case
 set incsearch " Show incremental search results
+
+" Folding
+set foldmethod=indent " Set folds to use indents and not braces
+set foldlevelstart=10 " Fold everything more than 10 indents long
+set foldnestmax=5 " Limit the madness to 5 folds at most
+set foldenable " Have files folded by default
+
+" Misc
 set lazyredraw
 set backspace=indent,eol,start
+set modeline " Set file specific modelines just in case
+set wildmenu " Enables command completion via <TAB>
 set noswapfile " Controversial I know
-set title " Sets the title of the terminal to the edited file
-set relativenumber " We're going hardmode now
 
 " Keybinds (- to go back a buffer, = to go forward)
 nnoremap - :bprevious<CR>
@@ -97,6 +102,11 @@ autocmd FileType markdown setlocal spell
 autocmd FileType text setlocal spell
 
 " Syntax and GUI
+set number " Turns on line numbering
+set showcmd " Show the in-progress command in the lower right corner
+set cursorline " Lights up the current line
+set relativenumber " We're going hardmode now
+set title " Sets the title of the terminal to the edited file
 syntax on
 colorscheme hybrid
 set background=dark " This is here for legacy reasons
