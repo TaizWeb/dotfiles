@@ -121,6 +121,13 @@ set guioptions-=m  " Disables Menubar
 set guioptions-=T  " Disables Toolbar
 set guioptions-=r  " Disables Scrollbar
 
+" Remember folds on save/load
+augroup remember_folds
+	autocmd!
+	autocmd BufWinLeave ?* mkview | filetype detect
+	autocmd BufWinEnter ?* silent loadview | filetype detect
+augroup END
+
 " Airline Settings
 let g:airline_theme='hybrid' " Sets the airline theme
 let g:airline_powerline_fonts = 1
