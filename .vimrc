@@ -42,6 +42,9 @@ Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 
+" Moonscript
+Plugin 'leafo/moonscript-vim'
+
 " Colorsheme Plugins
 "Plugin 'tomasr/molokai' " molokai
 "Plugin 'NLKNguyen/papercolor-theme' " PaperColor
@@ -93,6 +96,9 @@ set noswapfile " Controversial I know
 " Keybinds (- to go back a buffer, = to go forward)
 nnoremap - :bprevious<CR>
 nnoremap = :bnext<CR>
+
+" Making vim recognise moonscript
+autocmd BufNewFile,BufRead,BufReadPost *.moon set filetype=moon
 
 " Language-specific Editor Settings
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=0
