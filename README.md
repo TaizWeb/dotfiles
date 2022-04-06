@@ -1,10 +1,12 @@
-These are a collection of my dotfiles used on my linux machines.
+# dotfiles
+These are a collection of my dotfiles used on my Linux machines.
 
 ## Dumb Installation
 ### Vim (.vimrc)
 * Place the file in your home directory, for example (~/.vimrc)
 * You will also need [Vundle](https://github.com/VundleVim/Vundle.vim)
 * Install it with ``git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim``
+* Following that, open a new vim session and enter ``:VundleInstall`` to grab the plugins
 
 ### Bash (.bashrc)
 * Place the file in your home directory, for example (~/.bashrc)
