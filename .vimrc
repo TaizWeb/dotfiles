@@ -8,7 +8,7 @@ call vundle#begin()
 " Functionality
 Plugin 'VundleVim/Vundle.vim' " Vim package manager
 Plugin 'scrooloose/nerdTree' " Adds nerdTree menu
-Plugin 'scrooloose/nerdcommenter' " Enables a way to easily comment out lines/blocks
+Plugin 'tpope/vim-commentary' " Enables a way to easily comment out lines/blocks
 Plugin 'scrooloose/syntastic' " Lints files for errors
 Plugin 'ciaranm/securemodelines'
 Plugin 'ervandew/supertab' " Enables auto-completion via <TAB>
@@ -19,10 +19,9 @@ Plugin 'tomtom/tlib_vim' " SnipMate dependency
 Plugin 'garbas/vim-snipmate' " SnipMate
 Plugin 'honza/vim-snippets' " SnipMate
 Plugin 'tpope/vim-surround.git' " Enables easy changing of surrounding characters
-
-" Git
 Plugin 'tpope/vim-fugitive' " Native Git support in vim
 
+" Language Support
 " Markdown
 Plugin 'tpope/vim-markdown'
 
@@ -66,14 +65,15 @@ Plugin 'vim-airline/vim-airline-themes' " Adds themes to airline
 call vundle#end()
 
 " Whitespace
-set tabstop=2
+set tabstop=2 " Making tabs take up 2 spaces
 set softtabstop=2
 set shiftwidth=2
-set noexpandtab
+set noexpandtab " In this house we use tabs
 set smarttab
 set autoindent
 set smartindent
 set cindent
+set hidden " Jump buffers without having to save them first
 
 " Searching
 set hlsearch " Enables highlighted searching
@@ -85,6 +85,7 @@ set foldmethod=indent " Set folds to use indents and not braces
 set foldlevelstart=10 " Fold everything more than 10 indents long
 set foldnestmax=5 " Limit the madness to 5 folds at most
 set foldenable " Have files folded by default
+noremap <space> za " Use space to toggle folds
 
 " Misc
 set lazyredraw
@@ -107,18 +108,21 @@ autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=0
 autocmd FileType markdown setlocal spell
 autocmd FileType text setlocal spell
 
+" Commentary language support
+autocmd FileType python setlocal commentstring=#\ %s
+
 " Syntax and GUI
 set number " Turns on line numbering
 set showcmd " Show the in-progress command in the lower right corner
 set cursorline " Lights up the current line
 set relativenumber " We're going hardmode now
 set title " Sets the title of the terminal to the edited file
+set scrolloff=5 " Keep 5 lines above/below current line
+set sidescrolloff=5 " Same as above but for the sides
 syntax on
 colorscheme hybrid
 set background=dark " This is here for legacy reasons
 set encoding=utf8
-" set guifont='DejaVu_Sans_Mono_for_Powerline':h10
-":cANSI:qDRAFT
 set laststatus=2
 set list lcs=tab:\|\ " Add block indent lines
 
@@ -126,6 +130,8 @@ set list lcs=tab:\|\ " Add block indent lines
 set guioptions-=m  " Disables Menubar
 set guioptions-=T  " Disables Toolbar
 set guioptions-=r  " Disables Scrollbar
+" set guifont='DejaVu_Sans_Mono_for_Powerline':h10
+":cANSI:qDRAFT
 
 " Remember folds on save/load
 augroup remember_folds
@@ -135,7 +141,7 @@ augroup remember_folds
 augroup END
 
 " Airline Settings
-let g:airline_theme='hybrid' " Sets the airline theme
+let g:airline_theme='bubblegum' " Sets the airline theme
 let g:airline_powerline_fonts = 1
 
 " CtrlP Settings
