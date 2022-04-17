@@ -85,7 +85,6 @@ set foldmethod=indent " Set folds to use indents and not braces
 set foldlevelstart=10 " Fold everything more than 10 indents long
 set foldnestmax=5 " Limit the madness to 5 folds at most
 set foldenable " Have files folded by default
-noremap <space> za " Use space to toggle folds
 
 " Misc
 set lazyredraw
@@ -94,9 +93,14 @@ set modeline " Set file specific modelines just in case
 set wildmenu " Enables command completion via <TAB>
 set noswapfile " Controversial I know
 
-" Keybinds (- to go back a buffer, = to go forward)
+" Keybinds
+" (- to go back a buffer, = to go forward)
 nnoremap - :bprevious<CR>
 nnoremap = :bnext<CR>
+" Lucky number 7, reindents an entire file and puts you back at the line you executed it from. Protip, :set expandtab before doing this for spaces, :setnoexpandtab to convert to tabs
+nnoremap <F7> gg=G<C-o><C-o>
+" Use space to toggle folds
+noremap <space> za
 
 " Making vim recognise moonscript
 autocmd BufNewFile,BufRead,BufReadPost *.moon set filetype=moon
