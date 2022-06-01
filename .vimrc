@@ -97,6 +97,8 @@ set noswapfile " Controversial I know
 " (- to go back a buffer, = to go forward)
 nnoremap - :bprevious<CR>
 nnoremap = :bnext<CR>
+" Toggle NERDTree with F5
+noremap <F5> :NERDTreeToggle<CR>
 " Lucky number 7, reindents an entire file and puts you back at the line you executed it from. Protip, :set expandtab before doing this for spaces, :setnoexpandtab to convert to tabs
 nnoremap <F7> gg=G<C-o><C-o>
 " Use space to toggle folds
