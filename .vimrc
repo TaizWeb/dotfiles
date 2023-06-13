@@ -61,6 +61,7 @@ Plugin 'w0ng/vim-hybrid' " hybrid
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline' " Adds a bottom bar to vim
 Plugin 'vim-airline/vim-airline-themes' " Adds themes to airline
+Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()
 
@@ -123,7 +124,7 @@ set showcmd " Show the in-progress command in the lower right corner
 set cursorline " Lights up the current line
 set relativenumber " We're going hardmode now
 set title " Sets the title of the terminal to the edited file
-set scrolloff=5 " Keep 5 lines above/below current line
+set scrolloff=10 " Keep 10 lines above/below current line
 set sidescrolloff=5 " Same as above but for the sides
 syntax on
 colorscheme hybrid
@@ -156,6 +157,9 @@ let g:ctrlp_show_hidden = 1 " Enable ctrl-p to show dotfiles
 
 " Snipmate Settings
 let g:snipMate = { 'snippet_version' : 1 }
+
+" Commentary Settings
+" Template: autocmd FileType apache setlocal commentstring=#\ %s
 
 " Colorscheme Tweaks
 highlight Normal guibg=NONE ctermbg=NONE " Fancy transparent background
