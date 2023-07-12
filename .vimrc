@@ -150,6 +150,7 @@ augroup END
 " Airline Settings
 let g:airline_theme='bubblegum' " Sets the airline theme
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " CtrlP Settings
 let g:ctrlp_custom_ignore = 'node_modules\|.vscode\|Lib\|Include\|tcl\|.git/'
