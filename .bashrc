@@ -112,7 +112,7 @@ fi
 alias neofetch='neofetch --cpu_speed off'
 alias wttr='curl wttr.in' # Gives a neat weather report in the terminal
 alias pyvenv='source ./venv/bin/activate' # Initiate Python venv
-alias aptupgrade='sudo apt update && sudo apt upgrade -y'
+alias aptupgrade='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
 alias hgrep='cat ~/.bash_history | grep' # I got tired of remembering past commands
 
 # enable programmable completion features (you don't need to enable
@@ -132,3 +132,4 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
+
