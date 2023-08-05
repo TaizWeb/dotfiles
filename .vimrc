@@ -10,16 +10,17 @@ Plugin 'VundleVim/Vundle.vim' " Vim package manager
 Plugin 'scrooloose/nerdTree' " Adds nerdTree menu
 Plugin 'tpope/vim-commentary' " Enables a way to easily comment out lines/blocks
 Plugin 'scrooloose/syntastic' " Lints files for errors
-Plugin 'ciaranm/securemodelines'
+Plugin 'ciaranm/securemodelines' " Something to prevent arbitrary code execution. May not be needed for VIM8/9?
 Plugin 'ervandew/supertab' " Enables auto-completion via <TAB>
 Plugin 'ctrlpvim/ctrlp.vim' " Displays a directory's files via ctrl-p
-Plugin 'bling/vim-bufferline' " Displays buffers in the statusbar
+"Plugin 'bling/vim-bufferline' " Displays buffers in the statusbar
 Plugin 'MarcWeber/vim-addon-mw-utils' " SnipMate dependency
 Plugin 'tomtom/tlib_vim' " SnipMate dependency
 Plugin 'garbas/vim-snipmate' " SnipMate
 Plugin 'honza/vim-snippets' " SnipMate
 Plugin 'tpope/vim-surround.git' " Enables easy changing of surrounding characters
 Plugin 'tpope/vim-fugitive' " Native Git support in vim
+Plugin 'tpope/vim-sleuth' " Automatically match indent of current file
 
 " Language Support
 " Markdown
@@ -61,7 +62,6 @@ Plugin 'w0ng/vim-hybrid' " hybrid
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline' " Adds a bottom bar to vim
 Plugin 'vim-airline/vim-airline-themes' " Adds themes to airline
-Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()
 
