@@ -9,8 +9,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- Remember folds on save/load
 vim.cmd("augroup remember_folds")
 vim.cmd("autocmd!")
-vim.cmd("autocmd BufWinLeave ?* mkview | filetype detect")
-vim.cmd("autocmd BufWinEnter ?* silent loadview | filetype detect")
+vim.cmd("autocmd BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre ?* nested silent! mkview!")
+vim.cmd("autocmd BufWinEnter ?* silent! loadview")
 vim.cmd("augroup END")
 
 -- Language-specific
