@@ -8,6 +8,13 @@ These are a collection of my dotfiles used on my Linux machines.
 * Install it with ``git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim``
 * Following that, open a new vim session and enter ``:VundleInstall`` to grab the plugins
 
+### NeoVim
+* Copy the nvim folder to your ~/.config folder
+* You will also need [Packer](https://github.com/wbthomason/packer.nvim)
+* Install it with ``git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim``
+* Following that, open a new nvim session and enter ``:PackerInstall`` to grab the plugins
+
 ### Bash (.bashrc)
 * Place the file in your home directory, for example (~/.bashrc)
 
