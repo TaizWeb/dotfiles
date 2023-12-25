@@ -23,6 +23,7 @@ vim.o.smarttab = true
 vim.o.autoindent = true
 vim.o.cindent = true -- Support C while we're at it
 vim.o.hidden = true
+
 -- Searching
 vim.o.hlsearch = true -- Highlight search results
 vim.o.ignorecase = true -- Case insensitive
