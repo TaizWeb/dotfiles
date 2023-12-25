@@ -21,6 +21,8 @@ Plugin 'honza/vim-snippets' " SnipMate
 Plugin 'tpope/vim-surround.git' " Enables easy changing of surrounding characters
 Plugin 'tpope/vim-fugitive' " Native Git support in vim
 Plugin 'tpope/vim-sleuth' " Automatically match indent of current file
+Plugin 'luochen1990/rainbow' " Rainbow parenthesis
+let g:rainbow_active = 1
 
 " Language Support
 " Markdown
@@ -153,7 +155,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " CtrlP Settings
-let g:ctrlp_custom_ignore = 'node_modules\|.vscode\|Lib\|Include\|tcl\|.git/'
+let g:ctrlp_custom_ignore = 'node_modules\|.vscode\|Lib\|Include\|tcl\|.git/|__pycache__|site_packages'
 let g:ctrlp_show_hidden = 1 " Enable ctrl-p to show dotfiles
 
 " Snipmate Settings
@@ -161,6 +163,8 @@ let g:snipMate = { 'snippet_version' : 1 }
 
 " Commentary Settings
 " Template: autocmd FileType apache setlocal commentstring=#\ %s
+autocmd FileType lisp setlocal commentstring=;\ %s
+autocmd FileType lua setlocal commentstring=--\ %s
 
 " Colorscheme Tweaks
 highlight Normal guibg=NONE ctermbg=NONE " Fancy transparent background
