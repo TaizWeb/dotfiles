@@ -2,8 +2,8 @@
 vim.api.nvim_set_keymap("n", "-", ":bprevious<CR>", { noremap = true, silent = true })
 -- Switch to the next buffer
 vim.api.nvim_set_keymap("n", "=", ":bnext<CR>", { noremap = true, silent = true })
--- Toggle NERDTree with F5
-vim.api.nvim_set_keymap("n", "<F5>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- Toggle NERDTree with \e
+vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 -- Reindent entire file and return to the original line (with F7)
 vim.api.nvim_set_keymap("n", "<F7>", "gg=G<C-o><C-o>", { noremap = true, silent = true })
 -- Use space to toggle folds
