@@ -111,9 +111,14 @@ fi
 
 alias neofetch='neofetch --cpu_speed off'
 alias wttr='curl wttr.in' # Gives a neat weather report in the terminal
-alias pyvenv='source ./venv/bin/activate' # Initiate Python venv
+alias pyvenv='source ./bin/activate' # Initiate Python venv
 alias aptupgrade='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
 alias hgrep='cat ~/.bash_history | grep' # I got tired of remembering past commands
+
+# Networking Tests
+alias lup='ping 192.168.1.1' # Am I even on my network?
+alias dup='ping google.com' # Is DNS working?
+alias up='ping 8.8.8.8' # Can I make outbound connections?
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
