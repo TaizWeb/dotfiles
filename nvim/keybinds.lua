@@ -2,7 +2,11 @@
 vim.api.nvim_set_keymap("n", "-", ":bprevious<CR>", { noremap = true, silent = true })
 -- Switch to the next buffer
 vim.api.nvim_set_keymap("n", "=", ":bnext<CR>", { noremap = true, silent = true })
--- Toggle NERDTree with \e
+-- Move entire line and cursor down a line
+vim.api.nvim_set_keymap("n", "<leader>j", ":m .+1<CR>==", { noremap = true, silent = true })
+-- Move entire line and cursor up a line
+vim.api.nvim_set_keymap("n", "<leader>k", ":m .-2<CR>==", { noremap = true, silent = true })
+-- Toggle NvimTree with \e
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 -- Reindent entire file and return to the original line (with F7)
 vim.api.nvim_set_keymap("n", "<F7>", "gg=G<C-o><C-o>", { noremap = true, silent = true })
@@ -10,6 +14,8 @@ vim.api.nvim_set_keymap("n", "<F7>", "gg=G<C-o><C-o>", { noremap = true, silent 
 vim.api.nvim_set_keymap("n", "<Space>", "za", { noremap = true, silent = true })
 -- Delete buffers with \d
 vim.api.nvim_set_keymap("n", "<leader>d", ":bd<CR>:bprev<CR>", { noremap = true, silent = true })
+-- Show output of Trouble to see all errors/warning in a file
+vim.api.nvim_set_keymap("n", "<leader>t", ":TroubleToggle<CR>", { noremap = true, silent = true })
 
 -- Jump windows with CTRL-hjkl
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })

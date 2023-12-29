@@ -35,6 +35,7 @@ require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig") -- LSP support
 	use("mfussenegger/nvim-lint") -- Autorun linters
 	use("mhartington/formatter.nvim") -- Autorun formatters
+	use("folke/trouble.nvim") -- Get a list of errors
 
 	-- Autocompletion
 	use("L3MON4D3/LuaSnip") -- Snippet engine
