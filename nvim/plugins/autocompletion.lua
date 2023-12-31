@@ -1,4 +1,5 @@
 -- Autocompletion
+require("luasnip.loaders.from_vscode").lazy_load()
 local cmp = require("cmp")
 cmp.setup({
 	snippet = {
