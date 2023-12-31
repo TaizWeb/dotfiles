@@ -13,3 +13,8 @@ require("lspconfig")["lua_ls"].setup({
 require("lspconfig")["pylsp"].setup({
 	capabilities = capabilities,
 })
+
+-- Typescript LSP
+require("lspconfig")["eslint"].setup({
+	capabilities = capabilities,
+})

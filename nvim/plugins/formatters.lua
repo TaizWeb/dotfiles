@@ -42,6 +42,21 @@ require("formatter").setup({
 				}
 			end,
 		},
+		typescriptreact = {
+			require("formatter.filetypes.typescriptreact").prettier,
+			function()
+				return {
+					exe = "prettier",
+					args = {
+						util.escape_path(util.get_current_buffer_file_path()),
+						-- "--quiet",
+						-- "--fast",
+						-- "-",
+					},
+					stdin = true,
+				}
+			end,
+		},
 		["*"] = {
 			-- "formatter.filetypes.any" defines default configurations for any
 			-- filetype
