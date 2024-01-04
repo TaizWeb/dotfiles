@@ -2,6 +2,11 @@
 local original_dir = vim.fn.getcwd()
 vim.cmd("cd " .. vim.fn.stdpath("config"))
 
+-- Preload stuff
+-- Make Python linters shut up about imports
+local python_location = vim.fn.system("which python3")
+vim.g.python3_host_prog = string.sub(python_location, 1, -2) -- snip last char
+
 -- Load all the plugins
 require("plugins.packer-plugins")
 
