@@ -1,2 +1,5 @@
 $include /etc/inputrc
 set completion-ignore-case On
+set show-all-if-ambiguous on
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
