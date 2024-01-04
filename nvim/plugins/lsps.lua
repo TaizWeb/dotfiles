@@ -12,7 +12,23 @@ require("lspconfig")["lua_ls"].setup({
 -- Python LSP
 require("lspconfig")["pylsp"].setup({
 	capabilities = capabilities,
+	settings = {
+		pylsp = {
+			plugins = {
+				pylint = {
+					enabled = false,
+				},
+				pyflakes = {
+					enabled = false,
+				},
+			},
+		},
+	},
 })
+
+-- Doing this to support virtualenv location and ensure the LSP has it
+local python_location = os.execute("which python3")
+vim.g.python3_host_prog = python_location
 
 -- Typescript LSP
 require("lspconfig")["eslint"].setup({
