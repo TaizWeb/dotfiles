@@ -25,8 +25,13 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true 
 
 -- Telescope bindings
 local builtin = require("telescope.builtin")
+
+-- Stuff I actually use
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
+
+-- Recommended to me
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>ft", builtin.tags, {})
