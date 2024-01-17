@@ -26,6 +26,11 @@ require("lspconfig")["pylsp"].setup({
 	},
 })
 
+-- C LSP
+require("lspconfig")["clangd"].setup({
+	capabilities = capabilities,
+})
+
 -- Doing this to support virtualenv location and ensure the LSP has it
 -- local python_location = os.execute("which python3")
 -- vim.g.python3_host_prog = python_location
