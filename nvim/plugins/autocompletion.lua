@@ -34,6 +34,7 @@ telescope.setup({
 				-- e.g. git_{create, delete, ...}_branch for the git_branches picker
 				["<C-j>"] = "preview_scrolling_down",
 				["<C-k>"] = "preview_scrolling_up",
+				["<C-g>a"] = require("telescope.actions").git_staging_toggle,
 			},
 		},
 	},
