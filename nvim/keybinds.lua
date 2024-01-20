@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap("n", "<leader>k", ":m .-2<CR>==", { noremap = true, sile
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 -- Split vertically with \v
 vim.api.nvim_set_keymap("n", "<leader>v", ":vs<CR>", { noremap = true, silent = true })
--- Split horizontally with \v
+-- Split horizontally with \s
 vim.api.nvim_set_keymap("n", "<leader>s", ":sp<CR>", { noremap = true, silent = true })
 -- Reindent entire file and return to the original line (with F7)
 vim.api.nvim_set_keymap("n", "<F7>", "gg=G<C-o><C-o>", { noremap = true, silent = true })
