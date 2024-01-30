@@ -35,6 +35,7 @@ require("nvim-treesitter.configs").setup({
 
 	rainbow = {
 		enable = true,
+		disable = { "html" },
 		query = "rainbow-parens",
 		hlgroups = {
 			"TSRainbowCyan",
