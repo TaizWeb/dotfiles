@@ -1,5 +1,5 @@
 -- Colorscheme
-require("onedark").load()
+vim.cmd("colorscheme catppuccin-frappe")
 
 -- Lualine
 require("lualine").setup()

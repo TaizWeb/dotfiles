@@ -2,6 +2,7 @@
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Package manager
 	use("navarasu/onedark.nvim") -- Colorscheme
+	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("williamboman/mason.nvim") -- Package manager for linters/formatters/LSPs
 
 	-- Tree sitter, basically improved syntax highlight
