@@ -36,6 +36,15 @@ require("nvim-treesitter.configs").setup({
 	rainbow = {
 		enable = true,
 		query = "rainbow-parens",
+		hlgroups = {
+			"TSRainbowCyan",
+			"TSRainbowYellow",
+			"TSRainbowBlue",
+			"TSRainbowOrange",
+			"TSRainbowGreen",
+			"TSRainbowViolet",
+			"TSRainbowRed",
+		},
 		-- Highlight the entire buffer all at once
 		strategy = require("ts-rainbow").strategy.global,
 	},
