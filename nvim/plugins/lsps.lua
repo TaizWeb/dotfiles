@@ -31,6 +31,20 @@ require("lspconfig")["clangd"].setup({
 	capabilities = capabilities,
 })
 
+-- Dart LSP
+require("lspconfig")["dartls"].setup({
+	capabilities = capabilities,
+	cmd = { "/usr/bin/dart", "language-server", "--protocol=lsp" },
+	on_attach = require("cmp_nvim_lsp").on_attach,
+	settings = {
+		dart = {
+			completeFunctionCalls = true,
+			showTodos = true,
+		},
+	},
+	filetypes = { "dart" },
+})
+
 -- Doing this to support virtualenv location and ensure the LSP has it
 -- local python_location = os.execute("which python3")
 -- vim.g.python3_host_prog = python_location
