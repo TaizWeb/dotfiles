@@ -57,6 +57,17 @@ require("formatter").setup({
 				}
 			end,
 		},
+		dart = {
+			function()
+				return {
+					exe = "dart",
+					args = {
+						"format",
+					},
+					stdin = false,
+				}
+			end,
+		},
 		["*"] = {
 			-- "formatter.filetypes.any" defines default configurations for any
 			-- filetype
