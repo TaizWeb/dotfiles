@@ -26,3 +26,4 @@ vim.cmd("autocmd FileType text setlocal spell")
 
 -- Commentary language support
 vim.cmd("autocmd FileType python setlocal commentstring=#\\ %s")
+vim.cmd("autocmd FileType dart setlocal commentstring=//\\ %s")
