@@ -120,6 +120,11 @@ alias lup='ping 192.168.1.1' # Am I even on my network?
 alias dup='ping google.com' # Is DNS working?
 alias up='ping 8.8.8.8' # Can I make outbound connections?
 
+# Cleaning
+alias clean_journal='sudo journalctl --vacuum-size=500M'
+
+export PATH="$PATH:~/flutter/flutter/bin"
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -137,4 +142,3 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
-
