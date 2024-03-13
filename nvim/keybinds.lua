@@ -40,6 +40,7 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
+vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, {})
 
 -- Recommended to me
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
