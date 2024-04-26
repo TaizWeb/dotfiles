@@ -33,14 +33,18 @@ vim.api.nvim_set_keymap("n", "<C-Down>", "<C-w>j", { noremap = true, silent = tr
 vim.api.nvim_set_keymap("n", "<C-Up>", "<C-w>k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-Right>", "<C-w>l", { noremap = true, silent = true })
 
+-- Fugitive Shorthand
+vim.api.nvim_set_keymap("n", "<leader>gc", ":G commit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gp", ":G push<CR>", { noremap = true, silent = true })
+
 -- Telescope bindings
 local builtin = require("telescope.builtin")
 
 -- Stuff I actually use
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, {})
 vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
-vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, {})
 
 -- Recommended to me
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
