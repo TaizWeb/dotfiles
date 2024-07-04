@@ -32,6 +32,11 @@ require("packer").startup(function(use)
 	use("mhartington/formatter.nvim") -- Autorun formatters
 	use("folke/trouble.nvim") -- Get a list of errors
 
+	-- Debugging
+	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
+	use("theHamsta/nvim-dap-virtual-text")
+
 	-- Autocompletion
 	use("L3MON4D3/LuaSnip") -- Snippet engine
 	use("rafamadriz/friendly-snippets") -- Assorted snippets
@@ -58,7 +63,8 @@ require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
+	-- use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
+	use({ "akinsho/bufferline.nvim", branch = "main", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
 
 	-- Startup screen
 	use({
