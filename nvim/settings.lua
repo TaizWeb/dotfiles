@@ -40,4 +40,4 @@ vim.o.lazyredraw = true
 vim.o.backspace = "indent,eol,start"
 vim.o.modeline = true -- Set file specific modelines just in case
 vim.o.wildmenu = true -- Enables command completion via <TAB>
-vim.o.noswapfile = true -- Controversial I know
+-- vim.o.noswapfile = true -- Controversial I know
