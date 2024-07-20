@@ -14,6 +14,7 @@ require("plugins.packer-plugins")
 require("nvim-tree").setup()
 require("mason").setup()
 require("gitsigns").setup()
+require("trouble").setup()
 
 require("plugins.linters")
 require("plugins.formatters")

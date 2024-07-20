@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap("n", "<Space>", "za", { noremap = true, silent = true })
 -- Delete buffers with \d
 vim.api.nvim_set_keymap("n", "<leader>d", ":bd<CR>:bprev<CR>", { noremap = true, silent = true })
 -- Show output of Trouble to see all errors/warning in a file
-vim.api.nvim_set_keymap("n", "<leader>t", ":TroubleToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>t", ":Trouble diagnostics toggle<CR>", { noremap = true, silent = true })
 
 -- Jump windows with CTRL-hjkl
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
