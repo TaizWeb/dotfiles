@@ -11,7 +11,11 @@ require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("HiPhish/nvim-ts-rainbow2") -- Rainbow parenthesis
+
+	use({
+		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+		as = "nvim-ts-rainbow2", -- Rainbow parenthesis
+	})
 
 	-- Git
 	use("tpope/vim-fugitive") -- Native Git support in vim

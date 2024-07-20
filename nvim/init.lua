@@ -48,7 +48,6 @@ require("nvim-treesitter.configs").setup({
 			"TSRainbowRed",
 		},
 		-- Highlight the entire buffer all at once
-		strategy = require("ts-rainbow").strategy.global,
 	},
 })
 
