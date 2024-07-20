@@ -53,3 +53,8 @@ require("lspconfig")["dartls"].setup({
 require("lspconfig")["eslint"].setup({
 	capabilities = capabilities,
 })
+
+-- CSS LSP
+require("lspconfig")["cssls"].setup({
+	capabilities = capabilities,
+})
