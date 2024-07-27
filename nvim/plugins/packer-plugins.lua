@@ -6,15 +6,9 @@ require("packer").startup(function(use)
 	use("williamboman/mason.nvim") -- Package manager for linters/formatters/LSPs
 
 	-- Tree sitter, basically improved syntax highlight
-	-- NOTE: You will need to run :TSInstall comment for TODO highlighting)
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-
-	use({
-		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-		as = "nvim-ts-rainbow2", -- Rainbow parenthesis
+		run = ":TSUpdate && :TSInstall comment",
 	})
 
 	-- Git
@@ -36,9 +30,19 @@ require("packer").startup(function(use)
 	use("mhartington/formatter.nvim") -- Autorun formatters
 	use("folke/trouble.nvim") -- Get a list of errors
 
-	-- Autocompletion
+	-- Snippets
 	use("L3MON4D3/LuaSnip") -- Snippet engine
 	use("rafamadriz/friendly-snippets") -- Assorted snippets
+
+	-- Autodocstring
+	use({
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({})
+		end,
+	})
+
+	-- Autocompletion
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
@@ -47,7 +51,6 @@ require("packer").startup(function(use)
 	use("hrsh7th/nvim-cmp") -- Completion engine
 
 	-- Telescope, essentially a better ctrl-p
-	-- NOTE: ripgrep and fd (from apt) should be installed as well
 	use("nvim-lua/plenary.nvim") -- Dependency
 	use("nvim-telescope/telescope-fzf-native.nvim") -- Fuzzy finder
 	use("nvim-telescope/telescope.nvim") -- Telescope itself
@@ -55,14 +58,20 @@ require("packer").startup(function(use)
 	-- GUI
 	use("nvim-tree/nvim-tree.lua") -- File tree
 	use("nvim-tree/nvim-web-devicons") -- With icons
-	use("lukas-reineke/indent-blankline.nvim") -- Easily see which function you're in
-
+	-- Easily see which function you're in by coloring scopes
+	use("lukas-reineke/indent-blankline.nvim")
+	-- Bufferline, or the tabs on top
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
+	-- An airline-like plugin
 	use({
-		"nvim-lualine/lualine.nvim", -- An airline-like plugin
+		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
-
-	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
+	-- Rainbow parenthesis
+	use({
+		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+		as = "nvim-ts-rainbow2",
+	})
 
 	-- Startup screen
 	use({
