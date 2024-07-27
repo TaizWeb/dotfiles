@@ -25,6 +25,9 @@ create_symlink() {
 # Installing Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# Installing Packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # Linking bash config
 create_symlink "$(pwd)/.bashrc" ~/.bashrc
 
