@@ -16,7 +16,6 @@ MiscTabCloseMiddleClick=FALSE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscScrollAlternateScreen=TRUE
-BackgroundImageFile=/home/taiz/Pictures/memes/1505280081074.jpg
 FontName=DejaVuSansM Nerd Font Mono 13
 MiscBellUrgent=FALSE
 MiscMouseWheelZoom=TRUE
@@ -42,4 +41,3 @@ MiscShowUnsafePasteDialog=FALSE
 BackgroundDarkness=0.900000
 TitleMode=TERMINAL_TITLE_REPLACE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
-

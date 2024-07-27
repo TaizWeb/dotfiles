@@ -8,14 +8,15 @@ Before running the install script, you should make sure you have the following s
 ```bash
 git # Used heavily in the install script
 tmux # Sick terminal multiplexing
+xfce4-terminal # My terminal of choice
 perl # Dependency for the cool tmux config
 vim # My backup editor
-fd  # NeoVim Telescope dependency
+fd-find # NeoVim Telescope dependency for quickly "find"ing files
 ripgrep # NeoVim Telescope dependency
 xclip # Lets Vim/Tmux link with the system clipboard
-pynvim # Helps NeoVim with interfacing with Python
 python3-venv # Used by Mason to manage Python deps
-node # Used by Mason to manage JS deps (linters and the like)
+nodejs # Used by Mason to manage JS deps (linters and the like)
+npm # Same as nodejs
 cowsay # Fun
 fortune # Fun
 ```
@@ -26,10 +27,14 @@ Good luck having a package manager that keeps this up to date. Install it manual
 ### Python/Pip
 ```bash
 virtualenv # Used a lot in scripts to manage linters
+pynvim # Helps NeoVim with interfacing with Python
 ```
 
 ### Lua/Luarocks
 Most package managers suck about keeping Lua updated, might as well follow [this guide](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix).
+
+### Misc
+You'll also want a NERD Font so icons display properly in the terminal. The one I personally use (which the terminalrc attempts to load) is DejaVuSans, which can be located [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono).
 
 ## Quick Installation
 Run `./install.sh` while in the root of this repository.

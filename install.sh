@@ -40,6 +40,10 @@ create_symlink "$(pwd)/.vimrc" ~/.vimrc
 # Linking nvim config
 create_symlink "$(pwd)/nvim" ~/.config/nvim
 
+# Linking tmux config
+create_symlink "$(pwd)/.tmux.conf" ~/.tmux.conf
+create_symlink "$(pwd)/.tmux.conf.local" ~/.tmux.conf.local
+
 # Linking git config and adding it to git
 create_symlink "$(pwd)/.gitignore_global" ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
@@ -50,7 +54,7 @@ create_symlink "$(pwd)/xfce/terminalrc" ~/.config/xfce4/terminal/terminalrc
 
 # Install dependencies on startup
 nvim --headless -u packer_install.lua
-nvim  -c "luafile mason_install.lua"
+nvim -c "luafile mason_install.lua"
 
 # Printing a success message
 echo 'Success!'
