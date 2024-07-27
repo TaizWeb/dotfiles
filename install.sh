@@ -26,7 +26,7 @@ create_symlink() {
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Installing Packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Linking bash config
 create_symlink "$(pwd)/.bashrc" ~/.bashrc
@@ -36,6 +36,9 @@ create_symlink "$(pwd)/.inputrc" ~/.inputrc
 
 # Linking vim config
 create_symlink "$(pwd)/.vimrc" ~/.vimrc
+
+# Linking nvim config
+create_symlink "$(pwd)/nvim" ~/.config/nvim
 
 # Linking git config and adding it to git
 create_symlink "$(pwd)/.gitignore_global" ~/.gitignore_global
@@ -47,7 +50,7 @@ create_symlink "$(pwd)/xfce/terminalrc" ~/.config/xfce4/terminal/terminalrc
 
 # Install dependencies on startup
 nvim --headless -u packer_install.lua
-nvim --headless -u mason_install.lua
+nvim  -c "luafile mason_install.lua"
 
 # Printing a success message
-echo 'Success! To finish up, run :VundleInstall within vim!'
+echo 'Success!'

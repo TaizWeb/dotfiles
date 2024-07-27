@@ -1,3 +1,4 @@
+local plugins = require("nvim.plugins.packer-plugins")
 local packer = require("packer")
 
 packer.init({
@@ -6,9 +7,7 @@ packer.init({
 	},
 })
 
-packer.startup(function(use)
-	use("wbthomason/packer.nvim")
-end)
+plugins.setup(packer)
 
 packer.install()
 
