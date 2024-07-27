@@ -3,26 +3,48 @@
 # NOTE: You need git and coreutils installed for this to work. Execute this script inside the directory it's in (i.e. `./install.sh` should work)
 # NOTE: Having vim installed already along with xfce is a good idea
 
+# Function to prompt user and create symlink
+create_symlink() {
+    local source=$1
+    local target=$2
+
+    if [ -e "$target" ]; then
+        read -p "$target already exists. Overwrite with symlink? (y/n): " choice
+        if [ "$choice" = "y" ]; then
+            ln -sf "$source" "$target"
+            echo "Overwritten $target"
+        else
+            echo "Skipped $target"
+        fi
+    else
+        ln -s "$source" "$target"
+        echo "Linked $target"
+    fi
+}
+
 # Installing Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Linking bash config
-ln -s ./.bashrc ~/.bashrc
+create_symlink "$(pwd)/.bashrc" ~/.bashrc
 
 # Linking input config
-ln -s ./.inputrc ~/.inputrc
+create_symlink "$(pwd)/.inputrc" ~/.inputrc
 
-# Linking vimrc
-ln -s ./.vimrc ~/.vimrc
+# Linking vim config
+create_symlink "$(pwd)/.vimrc" ~/.vimrc
 
 # Linking git config and adding it to git
-ln -s ./.gitignore_global ~/.gitignore_global
+create_symlink "$(pwd)/.gitignore_global" ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
-# Linking the terminalrc
-# I notice this alternates between using xfce and xfce4?
-ln -s ~/xfce/terminalrc ~/.config/xfce4/terminal/terminalrc
+# Creating target directory if it doesn't exist and linking the terminalrc
+mkdir -p ~/.config/xfce4/terminal
+create_symlink "$(pwd)/xfce/terminalrc" ~/.config/xfce4/terminal/terminalrc
+
+# Install dependencies on startup
+nvim --headless -u packer_install.lua
+nvim --headless -u mason_install.lua
 
 # Printing a success message
 echo 'Success! To finish up, run :VundleInstall within vim!'
-
