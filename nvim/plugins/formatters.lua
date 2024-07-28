@@ -56,7 +56,10 @@ require("formatter").setup({
 					args = {
 						"check",
 						"--fix",
-						"--select I", -- Apply Isort
+						"--select", -- Autofix skill issues
+						"PIE",
+						"--select", -- Apply Isort
+						"I",
 						"--stdin-filename",
 						util.get_current_buffer_file_path(),
 					},
