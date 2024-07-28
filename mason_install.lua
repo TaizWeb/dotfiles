@@ -1,11 +1,3 @@
-local mason = require("mason")
-
-mason.init({
-	display = {
-		non_interactive = true,
-	},
-})
-
 local dependencies = {
 	"black",
 	"pylint",

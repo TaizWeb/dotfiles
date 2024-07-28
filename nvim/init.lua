@@ -7,10 +7,19 @@ vim.cmd("cd " .. vim.fn.stdpath("config"))
 local python_location = vim.fn.system("which python3")
 vim.g.python3_host_prog = string.sub(python_location, 1, -2) -- snip last char
 
+-- Force the bootstrap to take place
+require("plugins.lazy-bootstrap")
+
+-- Grab lazy and the plugins and set them up
+local lazy = require("lazy")
+local plugins = require("plugins.lazy-plugins")
+local opts = {}
+lazy.setup(plugins, opts)
+
 -- Load all the plugins
-local packer = require("packer")
-local plugins = require("plugins.packer-plugins")
-plugins.setup(packer)
+-- local packer = require("packer")
+-- local plugins = require("plugins.packer-plugins")
+-- plugins.setup(packer)
 
 -- Misc default setups
 require("nvim-tree").setup()
@@ -26,32 +35,6 @@ require("plugins.gui")
 require("autocmds")
 require("settings")
 require("keybinds")
-
--- Tree sitter
-require("nvim-treesitter.configs").setup({
-	ensure_installed = { "python", "vim" },
-
-	auto_install = true,
-	highlight = {
-		enable = true,
-	},
-
-	rainbow = {
-		enable = true,
-		disable = { "html" },
-		query = "rainbow-parens",
-		hlgroups = {
-			"TSRainbowCyan",
-			"TSRainbowYellow",
-			"TSRainbowBlue",
-			"TSRainbowOrange",
-			"TSRainbowGreen",
-			"TSRainbowViolet",
-			"TSRainbowRed",
-		},
-		-- Highlight the entire buffer all at once
-	},
-})
 
 -- Indent Blankline settings
 require("ibl").setup({

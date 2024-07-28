@@ -53,7 +53,8 @@ mkdir -p ~/.config/xfce4/terminal
 create_symlink "$(pwd)/xfce/terminalrc" ~/.config/xfce4/terminal/terminalrc
 
 # Install dependencies on startup
-nvim --headless -u packer_install.lua
+# NOTE: Shouldn't need this with lazy since it bootstraps
+# nvim --headless -u packer_install.lua
 nvim -c "luafile mason_install.lua"
 
 # Printing a success message
