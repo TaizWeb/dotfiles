@@ -1,5 +1,13 @@
 -- Linter File types
-require("lint").linters_by_ft = {
+local lint = require("lint")
+-- local luacheck = lint.linters.luacheck
+-- luacheck.args = {
+-- 	"--globals",
+-- 	"love",
+-- 	"-",
+-- }
+
+lint.linters_by_ft = {
 	-- lua = {
 	-- 	{
 	-- 		cmd = "luacheck",
@@ -7,7 +15,7 @@ require("lint").linters_by_ft = {
 	-- 		stdin = true,
 	-- 	},
 	-- },
-	lua = { "luacheck", args = { "--globals ", "vim" } },
+	lua = { cmd = "luacheck", args = { "--globals ", "vim" } },
 	lua = { "luacheck" },
 	typescriptreact = { "eslint_d" },
 }

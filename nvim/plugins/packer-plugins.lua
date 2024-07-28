@@ -28,6 +28,7 @@ function M.setup(packer)
 		use("tpope/vim-markdown") -- Markdown
 
 		-- Formatters, linters, and LSPs
+		-- use({ "neovim/nvim-lspconfig", opt = { inlay_hints = { enabled = true } } }) -- LSP support
 		use("neovim/nvim-lspconfig") -- LSP support
 		use("mfussenegger/nvim-lint") -- Autorun linters
 		use("mhartington/formatter.nvim") -- Autorun formatters
