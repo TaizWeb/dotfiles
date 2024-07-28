@@ -8,7 +8,9 @@ local python_location = vim.fn.system("which python3")
 vim.g.python3_host_prog = string.sub(python_location, 1, -2) -- snip last char
 
 -- Load all the plugins
-require("plugins.packer-plugins")
+local packer = require("packer")
+local plugins = require("plugins.packer-plugins")
+plugins.setup(packer)
 
 -- Misc default setups
 require("nvim-tree").setup()
