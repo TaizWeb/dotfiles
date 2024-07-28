@@ -29,23 +29,36 @@ require("formatter").setup({
 		python = {
 			-- "formatter.filetypes.lua" defines default configurations for the
 			-- "lua" filetype
-			require("formatter.filetypes.python").black,
+			-- require("formatter.filetypes.python").black,
+			-- function()
+			-- 	return {
+			-- 		exe = "black",
+			-- 		args = {
+			-- 			"--quiet",
+			-- 			"--fast",
+			-- 			"-",
+			-- 		},
+			-- 		stdin = true,
+			-- 	}
+			-- end,
+			-- function()
+			-- 	return {
+			-- 		exe = "isort",
+			-- 		-- args = {
+			-- 		-- 	"-",
+			-- 		-- },
+			-- 		stdin = false,
+			-- 	}
+			-- end,
 			function()
 				return {
-					exe = "black",
+					exe = "ruff",
 					args = {
-						"--quiet",
-						"--fast",
-						"-",
-					},
-					stdin = true,
-				}
-			end,
-			function()
-				return {
-					exe = "isort",
-					args = {
-						"-",
+						"check",
+						"--fix",
+						"--select I", -- Apply Isort
+						"--stdin-filename",
+						util.get_current_buffer_file_path(),
 					},
 					stdin = true,
 				}

@@ -21,7 +21,20 @@ require("lspconfig")["pylsp"].setup({
 				pyflakes = {
 					enabled = false,
 				},
+				pycodestyle = {
+					enabled = false,
+				},
 			},
+		},
+	},
+})
+
+-- Python LSP, but with Ruff
+require("lspconfig")["ruff_lsp"].setup({
+	capabilities = capabilities,
+	init_options = {
+		settings = {
+			args = {},
 		},
 	},
 })

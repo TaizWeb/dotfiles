@@ -9,6 +9,5 @@ require("lint").linters_by_ft = {
 	-- },
 	lua = { "luacheck", args = { "--globals ", "vim" } },
 	lua = { "luacheck" },
-	python = { "pylint" },
 	typescriptreact = { "eslint_d" },
 }
