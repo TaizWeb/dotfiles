@@ -18,6 +18,8 @@ local dependencies = {
 	"lua-language-server",
 	"luacheck",
 	"luaformatter",
+	"ruff",
+	"ruff-lsp",
 	"stylua",
 	"clang-format",
 	"clangd",
