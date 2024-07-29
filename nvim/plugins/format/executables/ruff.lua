@@ -2,11 +2,11 @@ return {
 	exe = "ruff",
 	args = {
 		"check",
-		"--fix",
-		"--select", -- Autofix skill issues
-		"PIE",
-		"--select", -- Apply Isort
-		"I",
+		"--fix-only",
+		"--select",
+		"ALL",
+		"--stdin-filename",
+		"-",
 	},
-	stdin = false,
+	stdin = true,
 }
