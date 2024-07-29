@@ -118,7 +118,6 @@ local plugins = {
 			require("inlay-hints").setup()
 		end,
 	},
-
 	-- Startup screen
 	{
 		"goolord/alpha-nvim",
@@ -126,6 +125,13 @@ local plugins = {
 		config = function()
 			require("alpha").setup(require("alpha.themes.startify").config)
 		end,
+	},
+
+	-- Encourage me to "git gud"
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {},
 	},
 }
 
