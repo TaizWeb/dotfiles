@@ -100,6 +100,14 @@ local plugins = {
 		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
 		name = "nvim-ts-rainbow2",
 	},
+	{
+		"MysticalDevil/inlay-hints.nvim",
+		event = "LspAttach",
+		dependencies = { "neovim/nvim-lspconfig" },
+		config = function()
+			require("inlay-hints").setup()
+		end,
+	},
 
 	-- Startup screen
 	{
