@@ -1,0 +1,42 @@
+[lint]
+select = [
+    # Pydocstyle errors/warnings
+    "E",
+    "W",
+    # Pyflakes
+    "F",
+    # Code complexity
+    "C",
+    # Naming; Enforce casing standards
+    "N",
+    # Bugbear; Cry about common Python pitfalls
+    "B",
+    # Isort
+    "I",
+    # Flake8 bandit, security stuff like exec calls
+    "S",
+    # Quote consistency
+    "Q",
+    # Refactor warnings, like magic number usage
+    "R",
+    # Pylint
+    "PL",
+    # Docstrings
+    "D",
+    # Prefer Pathlib
+    "PTH",
+    # Annotations in functions, including return type
+    "ANN",
+    # Correct newbie mistakes like if bool == True, or pass statements
+    "PIE",
+    # Warn on fixmes
+    "FIX",
+    # Okay this one's mostly here because I think autofixing non-fstrings is cool
+    "RUF"]
+ignore = []
+fixable = ["ALL"]
+
+[lint.pydocstyle]
+convention = "numpy"
+
+# Allow print statements, disable period checking,
