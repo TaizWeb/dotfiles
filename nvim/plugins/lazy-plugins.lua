@@ -66,7 +66,16 @@ local plugins = {
 	{
 		"danymat/neogen",
 		config = function()
-			require("neogen").setup({})
+			require("neogen").setup({
+				enabled = true,
+				languages = {
+					python = {
+						template = {
+							annotation_convention = "numpydoc",
+						},
+					},
+				},
+			})
 		end,
 	},
 
@@ -100,6 +109,7 @@ local plugins = {
 		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
 		name = "nvim-ts-rainbow2",
 	},
+	-- Inlay hints
 	{
 		"MysticalDevil/inlay-hints.nvim",
 		event = "LspAttach",
