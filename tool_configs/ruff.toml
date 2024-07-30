@@ -33,8 +33,9 @@ select = [
     "FIX",
     # Okay this one's mostly here because I think autofixing non-fstrings is cool
     "RUF"]
-ignore = []
+ignore = ["F401"]
 fixable = ["ALL"]
+unfixable = ["F401"]
 
 [lint.pydocstyle]
 convention = "numpy"
