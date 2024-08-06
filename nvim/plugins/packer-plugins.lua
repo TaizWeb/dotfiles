@@ -1,77 +1,96 @@
 -- Plugins
-require("packer").startup(function(use)
-	use("wbthomason/packer.nvim") -- Package manager
-	use("navarasu/onedark.nvim") -- Colorscheme
-	use({ "catppuccin/nvim", as = "catppuccin" })
-	use("williamboman/mason.nvim") -- Package manager for linters/formatters/LSPs
+local M = {}
 
-	-- Tree sitter, basically improved syntax highlight
-	-- NOTE: You will need to run :TSInstall comment for TODO highlighting)
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("HiPhish/nvim-ts-rainbow2") -- Rainbow parenthesis
+function M.setup(packer)
+	packer.startup(function(use)
+		use("wbthomason/packer.nvim") -- Package manager
+		use("navarasu/onedark.nvim") -- Colorscheme
+		use({ "catppuccin/nvim", as = "catppuccin" })
+		use("williamboman/mason.nvim") -- Package manager for linters/formatters/LSPs
 
-	-- Git
-	use("tpope/vim-fugitive") -- Native Git support in vim
-	use("lewis6991/gitsigns.nvim") -- Pretty GUI stuff
+		-- Tree sitter, basically improved syntax highlight
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate && :TSInstall comment",
+		})
 
-	-- Assorted
-	use("tpope/vim-commentary") -- Enables a way to easily comment out lines/blocks
-	use("tpope/vim-surround") -- Enables easy changing of surrounding characters
-	use("tpope/vim-sleuth") -- Automatically match indent of current file
+		-- Git
+		use("tpope/vim-fugitive") -- Native Git support in vim
+		use("lewis6991/gitsigns.nvim") -- Pretty GUI stuff
 
-	-- Language support
-	use("leafo/moonscript-vim") -- Moonscript
-	use("tpope/vim-markdown") -- Markdown
+		-- Assorted
+		use("tpope/vim-commentary") -- Enables a way to easily comment out lines/blocks
+		use("tpope/vim-surround") -- Enables easy changing of surrounding characters
+		use("tpope/vim-sleuth") -- Automatically match indent of current file
 
-	-- Formatters, linters, and LSPs
-	use("neovim/nvim-lspconfig") -- LSP support
-	use("mfussenegger/nvim-lint") -- Autorun linters
-	use("mhartington/formatter.nvim") -- Autorun formatters
-	use("folke/trouble.nvim") -- Get a list of errors
+		-- Language support
+		use("leafo/moonscript-vim") -- Moonscript
+		use("tpope/vim-markdown") -- Markdown
 
-	-- Debugging
-	use("mfussenegger/nvim-dap")
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
-	use("theHamsta/nvim-dap-virtual-text")
+		-- Debugging
+		use("mfussenegger/nvim-dap")
+		use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
+		use("theHamsta/nvim-dap-virtual-text")
 
-	-- Autocompletion
-	use("L3MON4D3/LuaSnip") -- Snippet engine
-	use("rafamadriz/friendly-snippets") -- Assorted snippets
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("saadparwaiz1/cmp_luasnip") -- Compat
-	use("hrsh7th/nvim-cmp") -- Completion engine
+		-- Formatters, linters, and LSPs
+		use({ "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = true } } }) -- LSP support
+		-- use("neovim/nvim-lspconfig") -- LSP support
+		use("mfussenegger/nvim-lint") -- Autorun linters
+		use("mhartington/formatter.nvim") -- Autorun formatters
+		use("folke/trouble.nvim") -- Get a list of errors
 
-	-- Telescope, essentially a better ctrl-p
-	-- NOTE: ripgrep and fd (from apt) should be installed as well
-	use("nvim-lua/plenary.nvim") -- Dependency
-	use("nvim-telescope/telescope-fzf-native.nvim") -- Fuzzy finder
-	use("nvim-telescope/telescope.nvim") -- Telescope itself
+		-- Snippets
+		use("L3MON4D3/LuaSnip") -- Snippet engine
+		use("rafamadriz/friendly-snippets") -- Assorted snippets
 
-	-- GUI
-	use("nvim-tree/nvim-tree.lua") -- File tree
-	use("nvim-tree/nvim-web-devicons") -- With icons
-	use("lukas-reineke/indent-blankline.nvim") -- Easily see which function you're in
+		-- Autodocstring
+		use({
+			"danymat/neogen",
+			config = function()
+				require("neogen").setup({})
+			end,
+		})
 
-	use({
-		"nvim-lualine/lualine.nvim", -- An airline-like plugin
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-	})
+		-- Autocompletion
+		use("hrsh7th/cmp-nvim-lsp")
+		use("hrsh7th/cmp-buffer")
+		use("hrsh7th/cmp-path")
+		use("hrsh7th/cmp-cmdline")
+		use("saadparwaiz1/cmp_luasnip") -- Compat
+		use("hrsh7th/nvim-cmp") -- Completion engine
 
-	-- use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
-	use({ "akinsho/bufferline.nvim", branch = "main", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
+		-- Telescope, essentially a better ctrl-p
+		use("nvim-lua/plenary.nvim") -- Dependency
+		use("nvim-telescope/telescope-fzf-native.nvim") -- Fuzzy finder
+		use("nvim-telescope/telescope.nvim") -- Telescope itself
 
-	-- Startup screen
-	use({
-		"goolord/alpha-nvim",
-		requires = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("alpha").setup(require("alpha.themes.startify").config)
-		end,
-	})
-end)
+		-- GUI
+		use("nvim-tree/nvim-tree.lua") -- File tree
+		use("nvim-tree/nvim-web-devicons") -- With icons
+		-- Easily see which function you're in by coloring scopes
+		use("lukas-reineke/indent-blankline.nvim")
+		-- Bufferline, or the tabs on top
+		use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
+		-- An airline-like plugin
+		use({
+			"nvim-lualine/lualine.nvim",
+			requires = { "nvim-tree/nvim-web-devicons", opt = true },
+		})
+		-- Rainbow parenthesis
+		use({
+			"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+			as = "nvim-ts-rainbow2",
+		})
+
+		-- Startup screen
+		use({
+			"goolord/alpha-nvim",
+			requires = { "nvim-tree/nvim-web-devicons" },
+			config = function()
+				require("alpha").setup(require("alpha.themes.startify").config)
+			end,
+		})
+	end)
+end
+
+return M

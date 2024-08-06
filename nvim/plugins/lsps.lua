@@ -7,6 +7,19 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Lua LSP
 require("lspconfig")["lua_ls"].setup({
 	capabilities = capabilities,
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = {
+					"love",
+					"vim",
+				},
+			},
+			hint = {
+				enable = true,
+			},
+		},
+	},
 })
 
 -- Python LSP
@@ -21,7 +34,20 @@ require("lspconfig")["pylsp"].setup({
 				pyflakes = {
 					enabled = false,
 				},
+				pycodestyle = {
+					enabled = false,
+				},
 			},
+		},
+	},
+})
+
+-- Python LSP, but with Ruff
+require("lspconfig")["ruff_lsp"].setup({
+	capabilities = capabilities,
+	init_options = {
+		settings = {
+			args = {},
 		},
 	},
 })
@@ -51,5 +77,10 @@ require("lspconfig")["dartls"].setup({
 
 -- Typescript LSP
 require("lspconfig")["eslint"].setup({
+	capabilities = capabilities,
+})
+
+-- CSS LSP
+require("lspconfig")["cssls"].setup({
 	capabilities = capabilities,
 })

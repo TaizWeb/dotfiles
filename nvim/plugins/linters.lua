@@ -1,6 +1,5 @@
 -- Linter File types
-require("lint").linters_by_ft = {
-	lua = { "luacheck" },
-	python = { "pylint" },
+local lint = require("lint")
+lint.linters_by_ft = {
 	typescriptreact = { "eslint_d" },
 }
