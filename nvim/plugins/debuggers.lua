@@ -22,23 +22,41 @@ dap.adapters.python = {
 	args = { "-m", "debugpy.adapter" },
 }
 
-dap.configurations.python = {
+local debug_conf_path = vim.fn.getenv("VIRTUAL_ENV") .. "/" .. "dap_conf.lua"
+local debug_conf = dofile(debug_conf_path)
+
+local python_config = {
 	{
 		type = "python",
 		request = "launch",
 		name = "Launch file",
 		program = "${file}",
 		pythonPath = function()
-			-- Use the Python executable of the virtual environment.
+			-- Use the Python executable of the venv
 			local venv_path = vim.fn.getenv("VIRTUAL_ENV")
-			if venv_path then
-				return venv_path .. "/bin/python"
+
+			-- Handle the case where venv_path is nil or vim.NIL, i.e. not within a venv
+			if venv_path and venv_path ~= vim.NIL then
+				-- Support Windows as well
+				local python_executable = "/bin/python"
+				if vim.fn.has("win32") == 1 then
+					python_executable = "\\Scripts\\python.exe"
+				end
+
+				return venv_path .. python_executable
 			else
+				-- Fallback to default Python interpreter if no venv is made
 				return "python"
 			end
 		end,
-	},
+	}
 }
+
+for key, value in pairs(debug_conf) do
+	python_config[1][key] = value
+end
+
+dap.configurations.python = python_config
 
 -- Automatically open/close dapui
 dap.listeners.after.event_initialized["dapui_config"] = function()
