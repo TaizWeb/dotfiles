@@ -76,7 +76,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
+# Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -88,46 +88,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-alias neofetch='neofetch --cpu_speed off'
-alias wttr='curl wttr.in' # Gives a neat weather report in the terminal
-alias pyvenv='source ./.venv/bin/activate' # Initiate Python venv
-alias aptupgrade='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
-alias hgrep='cat ~/.bash_history | grep' # I got tired of remembering past commands
-
-# Networking Tests
-alias lup='ping 192.168.1.1' # Am I even on my network?
-alias dup='ping google.com' # Is DNS working?
-alias up='ping 8.8.8.8' # Can I make outbound connections?
-
-# Cleaning
-alias clean_journal='sudo journalctl --vacuum-size=500M'
-
-export PATH="$PATH:~/flutter/flutter/bin"
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# Enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -136,11 +97,84 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Custom functions
+bin_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Alias definitions from .bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Various aliases
+# I'm insecure
+alias neofetch='neofetch --cpu_speed off'
+# Gives a neat weather report in the terminal
+alias wttr='curl wttr.in'
+# Initiate Python venv
+alias pyvenv='source ./.venv/bin/activate'
+# Quickly search requirements.txt
+alias pygrep='cat requirements.txt | grep'
+# Lazy upgrading
+alias aptupgrade='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
+# I got tired of remembering past commands
+alias hgrep='cat ~/.bash_history | grep'
+# Add an "alert" alias for long running commands. Usage: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# Colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Networking testing aliases
+alias lup='ping 192.168.1.1 -c 3' # Am I even on my network?
+alias dup='ping google.com -c 3' # Is DNS working?
+alias up='ping 8.8.8.8 -c 3' # Can I make outbound connections?
+
+# Cleaning
+alias clean_journal='sudo journalctl --vacuum-size=500M'
+
+# Tar shortcuts
+alias tarball='tar -czvf'
+alias untar='tar -xzvf'
+
+# Command upgrades, if the host machine has them
+# Prefer exa, fallback to ls
+if bin_exists exa; then
+    alias ls='exa --color=auto'
+    alias ll='exa -l'
+    alias la='exa --all'
+    # Do tree too
+    alias tree='exa -T'
+else
+    alias ll='ls -alF'
+    alias la='ls -A'
+    alias l='ls -CF'
+fi
+
+# Prefer duf over df
+if bin_exists duf; then
+    alias df='duf'
+fi
+
+# Prefer tldr over man
+if bin_exists tldr; then
+    alias man='tldr'
+fi
+
+# Prefer bat ove cat
+if bin_exists bat; then
+    alias cat='bat'
+fi
+
+# Add new things to path, notably custom binaries
+export PATH="$PATH:~/flutter/flutter/bin"
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export PATH="$PATH:~/bin"
 
 # Tmux autostart
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
 
+# Fun!
 fortune | cowsay
