@@ -22,8 +22,8 @@ dap.adapters.python = {
 	args = { "-m", "debugpy.adapter" },
 }
 
-local debug_conf_path = vim.fn.getenv("VIRTUAL_ENV") .. "/" .. "dap_conf.lua"
-if (vim.loop.fs_stat(debug_conf_path) ~= nil) then
+if (vim.fn.getenv("VIRTUAL_ENV") ~= vim.NIL) then
+	local debug_conf_path = vim.fn.getenv("VIRTUAL_ENV") .. "/" .. "dap_conf.lua"
 	local debug_conf = dofile(debug_conf_path)
 
 	local python_config = {
