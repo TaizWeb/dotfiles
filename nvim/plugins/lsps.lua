@@ -42,8 +42,18 @@ require("lspconfig")["pylsp"].setup({
 	},
 })
 
--- Python LSP, but with Ruff
+-- Python LSP, but with Ruff linting
 require("lspconfig")["ruff_lsp"].setup({
+	capabilities = capabilities,
+	init_options = {
+		settings = {
+			args = {},
+		},
+	},
+})
+
+-- Python LSP, but for Pylyzer type-checking
+require("lspconfig")["basedpyright"].setup({
 	capabilities = capabilities,
 	init_options = {
 		settings = {
