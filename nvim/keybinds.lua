@@ -34,16 +34,22 @@ vim.api.nvim_set_keymap("n", "<C-Up>", "<C-w>k", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<C-Right>", "<C-w>l", { noremap = true, silent = true })
 
 -- Fugitive Shorthand
+-- gc, git commit
 vim.api.nvim_set_keymap("n", "<leader>gc", ":G commit<CR>", { noremap = true, silent = true })
+-- gp, git push
 vim.api.nvim_set_keymap("n", "<leader>gp", ":G push<CR>", { noremap = true, silent = true })
 
 -- Telescope bindings
 local builtin = require("telescope.builtin")
 
 -- Stuff I actually use
+-- ff, find files
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+-- fg, find (via) grep
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+-- fs, find symbols
 vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, {})
+-- gs, git status
 vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
 
 -- Recommended to me
@@ -51,3 +57,15 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>ft", builtin.tags, {})
 vim.keymap.set("n", "<leader>fp", builtin.treesitter, {})
+
+-- Debug Mappings
+-- db, debug breakpoint
+vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", {})
+-- dc, debug continue
+vim.keymap.set("n", "<leader>dc", ":lua require'dap'.continue()<CR>", {})
+-- do, debug (step) over
+vim.keymap.set("n", "<leader>do", ":lua require'dap'.step_over()<CR>", {})
+-- di, debug (step) into
+vim.keymap.set("n", "<leader>di", ":lua require'dap'.step_into()<CR>", {})
+-- ds, debug status
+vim.keymap.set("n", "<leader>ds", ":lua require'dap'.repl.open()<CR>", {})

@@ -87,6 +87,11 @@ local plugins = {
 	{ "saadparwaiz1/cmp_luasnip" }, -- Compat
 	{ "hrsh7th/nvim-cmp" }, -- Completion engine
 
+	-- Debugging
+	{ "mfussenegger/nvim-dap" },
+	-- { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+	{ "theHamsta/nvim-dap-virtual-text" },
+
 	-- Telescope, essentially a better ctrl-p
 	{ "nvim-lua/plenary.nvim" }, -- Dependency
 	{ "nvim-telescope/telescope-fzf-native.nvim" }, -- Fuzzy finder
