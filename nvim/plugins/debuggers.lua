@@ -1,10 +1,6 @@
 local dap = require("dap")
-local dapui = require("dapui")
 local dap_virtual_text = require("nvim-dap-virtual-text")
 local mason_registry = require("mason-registry")
-
--- Setup nvim-dap-ui
-dapui.setup()
 
 -- Setup nvim-dap-virtual-text
 dap_virtual_text.setup()
@@ -22,7 +18,7 @@ dap.adapters.python = {
 	args = { "-m", "debugpy.adapter" },
 }
 
-if (vim.fn.getenv("VIRTUAL_ENV") ~= vim.NIL) then
+if vim.fn.getenv("VIRTUAL_ENV") ~= vim.NIL then
 	local debug_conf_path = vim.fn.getenv("VIRTUAL_ENV") .. "/" .. "dap_conf.lua"
 	local debug_conf = dofile(debug_conf_path)
 
@@ -50,7 +46,7 @@ if (vim.fn.getenv("VIRTUAL_ENV") ~= vim.NIL) then
 					return "python"
 				end
 			end,
-		}
+		},
 	}
 
 	for key, value in pairs(debug_conf) do
@@ -58,15 +54,4 @@ if (vim.fn.getenv("VIRTUAL_ENV") ~= vim.NIL) then
 	end
 
 	dap.configurations.python = python_config
-end
-
--- Automatically open/close dapui
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
 end
