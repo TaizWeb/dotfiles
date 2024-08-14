@@ -27,6 +27,11 @@ function M.setup(packer)
 		use("leafo/moonscript-vim") -- Moonscript
 		use("tpope/vim-markdown") -- Markdown
 
+		-- Debugging
+		use("mfussenegger/nvim-dap")
+		use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
+		use("theHamsta/nvim-dap-virtual-text")
+
 		-- Formatters, linters, and LSPs
 		use({ "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = true } } }) -- LSP support
 		-- use("neovim/nvim-lspconfig") -- LSP support
