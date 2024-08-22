@@ -50,6 +50,7 @@ local plugins = {
 	-- Language support
 	{ "leafo/moonscript-vim" }, -- Moonscript
 	{ "tpope/vim-markdown" }, -- Markdown
+	{ "aklt/plantuml-syntax" }, -- PlantUML
 
 	-- Formatters, linters, and LSPs
 	-- { "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = true } } }, -- LSP support
@@ -158,11 +159,11 @@ local plugins = {
 	},
 
 	-- Personal plugin testing
-	{
-		dir = "~/Projects/buffwipe", -- Use the full path to your plugin
-		-- config = function() end,
-		opts = {},
-	},
+	-- {
+	-- 	dir = "~/Projects/buffwipe", -- Use the full path to your plugin
+	-- 	-- config = function() end,
+	-- 	opts = {},
+	-- },
 }
 
 return plugins
