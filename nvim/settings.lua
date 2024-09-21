@@ -40,6 +40,7 @@ vim.o.lazyredraw = true
 vim.o.backspace = "indent,eol,start"
 vim.o.modeline = true -- Set file specific modelines just in case
 vim.o.wildmenu = true -- Enables command completion via <TAB>
+vim.opt.clipboard = "unnamedplus" -- Use the system clipboard
 -- vim.o.noswapfile = true -- Controversial I know
 -- Make the highlight numbers "pop" in catpuccin frappe
 vim.cmd([[
