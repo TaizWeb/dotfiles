@@ -51,7 +51,7 @@ Make symlinks of each of the desired files `ln -s ~/path/to/dotfiles/.filerc ~/.
 * Place the file in your home directory, for example, `~/.vimrc`
 * You will also need [Vundle](https://github.com/VundleVim/Vundle.vim)
 * Install it with `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-* Following that, open a new vim session and enter ``:VundleInstall`` to grab the plugins
+* Following that, open a new vim session and enter `:VundleInstall` to grab the plugins
 
 ### NeoVim
 * Copy the nvim folder to your `~/.config` folder
@@ -59,7 +59,7 @@ Make symlinks of each of the desired files `ln -s ~/path/to/dotfiles/.filerc ~/.
 
 #### Packer (Deprecated, now the NeoVim setup bootstraps Lazy)
 1. Install it with `git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
-2. Following that, open a new nvim session and enter ``:PackerInstall`` to grab the plugins
+2. Following that, open a new nvim session and enter `:PackerInstall` to grab the plugins
 
 #### TODO Highlighting
 Run `:TSInstall comment`

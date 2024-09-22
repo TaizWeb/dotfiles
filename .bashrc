@@ -138,6 +138,30 @@ alias clean_journal='sudo journalctl --vacuum-size=500M'
 alias tarball='tar -czvf'
 alias untar='tar -xzvf'
 
+# Docker shortcuts
+if bin_exists docker; then
+    alias dps='docker ps'
+    alias dimg='docker images'
+    # compose management
+    alias dcup='docker-compose up'
+    alias dcdown='docker-compose down'
+    # container management
+    alias dcstart='docker-compose start'
+    alias dcstop='docker-compose stop'
+fi
+
+# Podman shortcuts, overrides docker
+if bin_exists podman; then
+    alias dps='podman ps'
+    alias dimg='podman images'
+    # compose management
+    alias dcup='podman-compose up'
+    alias dcdown='podman-compose down'
+    # container management
+    alias dcstart='podman-compose start'
+    alias dcstop='podman-compose stop'
+fi
+
 # Bookmarks!
 # Add a new bookmark
 markadd() {
