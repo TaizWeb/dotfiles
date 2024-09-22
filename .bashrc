@@ -148,6 +148,7 @@ if bin_exists docker; then
     # container management
     alias dcstart='docker-compose start'
     alias dcstop='docker-compose stop'
+    denter() { docker exec -it "$1" /bin/bash; }
 fi
 
 # Podman shortcuts, overrides docker
@@ -160,6 +161,7 @@ if bin_exists podman; then
     # container management
     alias dcstart='podman-compose start'
     alias dcstop='podman-compose stop'
+    denter() { podman exec -it "$1" /bin/bash; }
 fi
 
 # Bookmarks!
