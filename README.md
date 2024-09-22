@@ -34,26 +34,31 @@ pynvim # Helps NeoVim with interfacing with Python
 Most package managers suck about keeping Lua updated, might as well follow [this guide](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix).
 
 ### Misc
-You'll also want a NERD Font so icons display properly in the terminal. The one I personally use (which the terminalrc attempts to load) is DejaVuSans, which can be located [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono).
+#### Terminal Font
+You'll also want a NERD Font so icons display properly in the terminal. The one I personally use (which the terminalrc attempts to load) is DejaVuSans, which can be located [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip).
+
+#### Terminal Colors
+Linux Terminals: To acquire a nice-looking Preset for the terminal, use [Gogh's preset installer](https://github.com/Gogh-Co/Gogh)
+Windows Terminals: Similar to the above, but using [this project](https://github.com/mbadolato/iTerm2-Color-Schemes). May require altering the registry in some cases like PuTTY.
 
 ## Quick Installation
 Run `./install.sh` while in the root of this repository.
 
 ## Manual Installation
-Make symlinks of each of the desired files `ln -s ~/path/to/dotfiles/.filerc ~/.filerc`. See below for how to do this and wht dependencies the packages need.
+Make symlinks of each of the desired files `ln -s ~/path/to/dotfiles/.filerc ~/.filerc`. See below for how to do this and what dependencies the packages need.
 
 ### Vim (.vimrc)
 * Place the file in your home directory, for example, `~/.vimrc`
 * You will also need [Vundle](https://github.com/VundleVim/Vundle.vim)
-* Install it with ``git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim``
+* Install it with `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 * Following that, open a new vim session and enter ``:VundleInstall`` to grab the plugins
 
 ### NeoVim
 * Copy the nvim folder to your `~/.config` folder
 * You will also need [Packer](https://github.com/wbthomason/packer.nvim)
 
-#### Packer
-1. Install it with ``git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim``
+#### Packer (Deprecated, now the NeoVim setup bootstraps Lazy)
+1. Install it with `git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
 2. Following that, open a new nvim session and enter ``:PackerInstall`` to grab the plugins
 
 #### TODO Highlighting
@@ -85,6 +90,8 @@ Currently used Mason packages are:
 ##### C
 * clang-format
 * clangd
+
+To automate the installation of these, run `nvim -c "luafile mason_install.lua"` in the root directory of this repo.
 
 ### Bash (.bashrc)
 * Place the file in your home directory, for example `~/.bashrc`
