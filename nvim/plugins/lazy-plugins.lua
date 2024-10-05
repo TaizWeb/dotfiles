@@ -93,6 +93,17 @@ local plugins = {
 	-- { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 	{ "theHamsta/nvim-dap-virtual-text" },
 
+	-- Refactoring
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("refactoring").setup()
+		end,
+	},
 	-- Telescope, essentially a better ctrl-p
 	{ "nvim-lua/plenary.nvim" }, -- Dependency
 	{ "nvim-telescope/telescope-fzf-native.nvim" }, -- Fuzzy finder
