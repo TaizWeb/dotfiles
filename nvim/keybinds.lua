@@ -58,6 +58,14 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>ft", builtin.tags, {})
 vim.keymap.set("n", "<leader>fp", builtin.treesitter, {})
 
+-- Refactoring Mappings
+-- re, refactor extract (block of code to a function)
+vim.keymap.set("n", "<leader>re", ":Refactor extract ", {})
+-- rv, refactor variable
+vim.keymap.set("n", "<leader>rv", ":Refactor extract_var ", {})
+-- rr, refactor rename
+vim.keymap.set("n", "<leader>rr", ":vim.lsp.buf.rename()", {})
+
 -- Debug Mappings
 -- db, debug breakpoint
 vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", {})
