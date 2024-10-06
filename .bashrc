@@ -247,6 +247,21 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   exec tmux
 fi
 
+# If tmux is up, then bind the ssh-agent to it
+if [ -n "$TMUX" ]; then
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+        # No ssh-agent running, start one
+        tmux show-environment | grep '^SSH_AUTH_SOCK' > /dev/null
+        if [ $? -eq 0 ]; then
+            eval "$(tmux show-environment | grep '^SSH_AUTH_SOCK' | sed 's/^/export /')"
+        else
+            eval $(ssh-agent)
+            tmux set-environment -g SSH_AUTH_SOCK $SSH_AUTH_SOCK
+            ssh-add ~/.ssh/id_rsa
+        fi
+    fi
+fi
+
 # Fun!
 if command -v fortune >/dev/null 2>&1 && command -v cowsay >/dev/null 2>&1; then
     fortune | cowsay
