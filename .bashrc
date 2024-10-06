@@ -106,6 +106,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Load xmodmap, if running Xserver
+if bin_exists xmodmap; then
+    xmodmap ~/.Xmodmap
+fi
+
 # Various aliases
 # I'm insecure
 alias neofetch='neofetch --cpu_speed off'

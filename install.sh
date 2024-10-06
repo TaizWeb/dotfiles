@@ -34,6 +34,9 @@ create_symlink "$(pwd)/.bashrc" ~/.bashrc
 # Linking input config
 create_symlink "$(pwd)/.inputrc" ~/.inputrc
 
+# Linking Xmodmap config
+create_symlink "$(pwd)/.Xmodmap" ~/.Xmodmap
+
 # Linking vim config
 create_symlink "$(pwd)/.vimrc" ~/.vimrc
 
