@@ -60,9 +60,9 @@ vim.keymap.set("n", "<leader>fp", builtin.treesitter, {})
 
 -- Refactoring Mappings
 -- re, refactor extract (block of code to a function)
-vim.keymap.set("n", "<leader>re", ":Refactor extract ", {})
+vim.keymap.set("x", "<leader>re", ":Refactor extract ", {})
 -- rv, refactor variable
-vim.keymap.set("n", "<leader>rv", ":Refactor extract_var ", {})
+vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ", {})
 -- rr, refactor rename
 vim.keymap.set("n", "<leader>rr", ":lua vim.lsp.buf.rename()<CR>", {})
 
