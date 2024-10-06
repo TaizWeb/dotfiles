@@ -64,7 +64,7 @@ vim.keymap.set("n", "<leader>re", ":Refactor extract ", {})
 -- rv, refactor variable
 vim.keymap.set("n", "<leader>rv", ":Refactor extract_var ", {})
 -- rr, refactor rename
-vim.keymap.set("n", "<leader>rr", ":vim.lsp.buf.rename()", {})
+vim.keymap.set("n", "<leader>rr", ":lua vim.lsp.buf.rename()<CR>", {})
 
 -- Debug Mappings
 -- db, debug breakpoint
